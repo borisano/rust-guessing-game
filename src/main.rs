@@ -10,7 +10,9 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(1..101);
 
+    let mut i = 0;
     loop {
+        i += 1;
         let mut guess = String::new();
 
         io::stdin().read_line(&mut guess)
@@ -28,6 +30,7 @@ fn main() {
             std::cmp::Ordering::Greater => println!("Too big!"),
             std::cmp::Ordering::Equal => {
                 println!("You win!");
+                println!("You guessed {} times", i);
                 break;
             }
         }
